@@ -19,10 +19,10 @@
       background-color: rgba(0,0,0,0.8);
       text-align: center;
     }
-    .modal embed {
+    .modal embed, .modal img {
       margin-top: 50px;
-      width: 80%;
-      height: 600px;
+      max-width: 80%;
+      height: auto;
       border: 4px solid #fff;
       border-radius: 8px;
       background: #fff;
@@ -38,6 +38,26 @@
     }
     .close:hover {
       color: #ccc;
+    }
+    /* Project styling */
+    .project {
+      background: #fff;
+      margin: 1rem 0;
+      padding: 1rem;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .project:hover {
+      transform: scale(1.03);
+      background: #f0f8ff;
+    }
+    #gallery-content img {
+      max-width: 80%;
+      margin: 10px;
+      border: 3px solid #fff;
+      border-radius: 6px;
     }
   </style>
 </head>
@@ -62,14 +82,18 @@
     <p>Licensed Mechanical Engineer, DOST Scholar, Cum Laude graduate. Currently building skills in Python and data analysis while exploring engineering simulations with open-source tools.</p>
   </section>
 
-  <!-- Projects Section -->
+  <!-- Projects Section (Images Gallery) -->
   <section id="projects">
     <h2>Projects</h2>
-    <ul>
-      <li onclick="openModal('rod')"><strong>Stress and Displacement Analysis of Piston Connecting Rod</strong></li>
-      <li onclick="openModal('bullet')"><strong>Analysis of a Simple Bullet under 5.4 m/s Airflow</strong></li>
-      <li onclick="openModal('duct')"><strong>Analysis of an Exhaust Ducting</strong></li>
-    </ul>
+    <div class="project" onclick="openGallery('rod')">
+      <h3>Stress and Displacement Analysis of Piston Connecting Rod</h3>
+    </div>
+    <div class="project" onclick="openGallery('bullet')">
+      <h3>Analysis of a Simple Bullet under 5.4 m/s Airflow</h3>
+    </div>
+    <div class="project" onclick="openGallery('duct')">
+      <h3>Analysis of an Exhaust Ducting</h3>
+    </div>
   </section>
 
   <!-- Training Section (PDFs) -->
@@ -123,10 +147,16 @@
     <p>&copy; 2026 Carl Ervin Sabanal</p>
   </footer>
 
-  <!-- Modal -->
+  <!-- Modal for PDFs -->
   <div id="modal" class="modal">
     <span class="close" onclick="closeModal()">&times;</span>
     <div id="modal-content"></div>
+  </div>
+
+  <!-- Gallery Modal for Projects -->
+  <div id="galleryModal" class="modal">
+    <span class="close" onclick="closeGallery()">&times;</span>
+    <div id="gallery-content"></div>
   </div>
 
   <!-- Script -->
@@ -134,17 +164,12 @@
     function openModal(item) {
       let filePath = '';
 
-      // Projects (PDFs)
-      if (item === 'rod') filePath = 'docs/rod.pdf';
-      if (item === 'bullet') filePath = 'docs/bullet.pdf';
-      if (item === 'duct') filePath = 'docs/duct.pdf';
-
       // Training (PDFs)
       if (item === 'simulations') filePath = 'docs/A Hands-on Introduction to Engineering Simulations.pdf';
       if (item === 'joining') filePath = 'docs/Joining Data with Pandas.pdf';
       if (item === 'manipulation') filePath = 'docs/Data Manipulation with Pandas.pdf';
       if (item === 'intermediatepython') filePath = 'docs/Intermediate Python.pdf';
-      if (item === 'intropython') filePath = 'docs/Introduction to Phyton.pdf';
+      if (item === 'intropython') filePath = 'docs/Introduction to Python.pdf';
 
       // Certificates (PDFs)
       if (item === 'ai') filePath = 'docs/AI for Beginners.pdf';
@@ -166,8 +191,4 @@
     }
 
     function closeModal() {
-      document.getElementById('modal').style.display = 'none';
-    }
-  </script>
-</body>
-</html>
+      document.getElementById('modal').
