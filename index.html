@@ -19,12 +19,13 @@
       background-color: rgba(0,0,0,0.8);
       text-align: center;
     }
-    .modal img {
+    .modal embed {
       margin-top: 50px;
-      max-width: 90%;
-      height: auto;
+      width: 80%;
+      height: 600px;
       border: 4px solid #fff;
       border-radius: 8px;
+      background: #fff;
     }
     .close {
       position: absolute;
@@ -71,27 +72,6 @@
     </ul>
   </section>
 
-  <!-- Training Section -->
-  <section id="training">
-    <h2>Training</h2>
-    <ul>
-      <li><strong>A Hands-on Introduction to Engineering Simulations</strong></li>
-      <li><strong>Joining Data with Pandas</strong></li>
-      <li><strong>Data Manipulation with Pandas</strong></li>
-      <li><strong>Intermediate Python</strong></li>
-      <li><strong>Introduction to Python</strong></li>
-    </ul>
-  </section>
-
-  <!-- Experience Section -->
-  <section id="experience">
-    <h2>Experience</h2>
-    <ul>
-      <li><strong>Design Engineer</strong> – One year in a Research and Development Company</li>
-      <li><strong>Service Engineer</strong> – One and a half years in an Industrial Machineries Company</li>
-    </ul>
-  </section>
-
   <!-- Certificates Section -->
   <section id="certificates">
     <h2>Certificates</h2>
@@ -125,37 +105,35 @@
   <!-- Modal -->
   <div id="modal" class="modal">
     <span class="close" onclick="closeModal()">&times;</span>
-    <img id="modal-img" src="" alt="Image">
+    <div id="modal-content"></div>
   </div>
 
   <!-- Script -->
   <script>
     function openModal(item) {
-      let imgPath = '';
+      let filePath = '';
 
-      // Projects
-      if (item === 'rod') imgPath = 'images/rod.png';
-      if (item === 'bullet') imgPath = 'images/bullet.png';
-      if (item === 'duct') imgPath = 'images/duct.png';
+      // Projects (PDFs instead of images)
+      if (item === 'rod') filePath = 'docs/rod.pdf';
+      if (item === 'bullet') filePath = 'docs/bullet.pdf';
+      if (item === 'duct') filePath = 'docs/duct.pdf';
 
-      // Certificates
-      if (item === 'ai') imgPath = 'images/ai.png';
-      if (item === 'drawing') imgPath = 'images/drawing.png';
-      if (item === 'datasci') imgPath = 'images/datasci.png';
-      if (item === 'present') imgPath = 'images/present.png';
-      if (item === 'geothermal') imgPath = 'images/geothermal.png';
-      if (item === 'python') imgPath = 'images/python.png';
-      if (item === 'mold') imgPath = 'images/mold.png';
-      if (item === 'hvac') imgPath = 'images/hvac.png';
-      if (item === 'mechawizard') imgPath = 'images/mechawizard.png';
-      if (item === 'pneumatic') imgPath = 'images/pneumatic.png';
-      if (item === 'pump') imgPath = 'images/pump.png';
-      if (item === 'techdrawing') imgPath = 'images/techdrawing.png';
+      // Certificates (PDFs)
+      if (item === 'ai') filePath = 'docs/ai.pdf';
+      if (item === 'drawing') filePath = 'docs/drawing.pdf';
+      if (item === 'datasci') filePath = 'docs/datasci.pdf';
+      if (item === 'present') filePath = 'docs/present.pdf';
+      if (item === 'geothermal') filePath = 'docs/geothermal.pdf';
+      if (item === 'mold') filePath = 'docs/mold.pdf';
+      if (item === 'hvac') filePath = 'docs/hvac.pdf';
+      if (item === 'mechawizard') filePath = 'docs/mechawizard.pdf';
+      if (item === 'pneumatic') filePath = 'docs/pneumatic.pdf';
+      if (item === 'pump') filePath = 'docs/pump.pdf';
+      if (item === 'techdrawing') filePath = 'docs/techdrawing.pdf';
 
-      // Show image in modal
-      const modalImg = document.getElementById('modal-img');
-      modalImg.src = imgPath;
-      modalImg.alt = item + " preview";
+      // Show PDF in modal
+      const modalContent = document.getElementById('modal-content');
+      modalContent.innerHTML = `<embed src="${filePath}" type="application/pdf">`;
       document.getElementById('modal').style.display = 'block';
     }
 
