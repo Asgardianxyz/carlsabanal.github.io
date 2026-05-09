@@ -1,15 +1,55 @@
-.project {
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  line-height: 1.6;
+}
+
+header {
+  background: #004466;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+nav a {
+  color: #fff;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+section {
+  padding: 20px;
+}
+
+h2 {
+  color: #004466;
+}
+
+footer {
+  background: #eee;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Project list styling */
+#projects ul {
+  list-style: none;
+  padding: 0;
+}
+
+#projects li {
+  padding: 10px;
   border: 1px solid #ccc;
-  padding: 15px;
-  margin: 10px 0;
+  margin: 8px 0;
   cursor: pointer;
   transition: 0.3s;
 }
 
-.project:hover {
+#projects li:hover {
   background: #f0f8ff;
 }
 
+/* Modal styling */
 .modal {
   display: none;
   position: fixed;
