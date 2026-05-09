@@ -1,23 +1,40 @@
 <section id="projects">
   <h2>Projects</h2>
-  <div class="project">
-    <a href="images/netflix.png" target="_blank">
-      <h3>Netflix Movies Analysis</h3>
-      <p>Python, pandas, data visualization</p>
-    </a>
+
+  <div class="project" onclick="openModal('netflix')">
+    <h3>Netflix Movies Analysis</h3>
+    <p>Python, pandas, data visualization</p>
   </div>
 
-  <div class="project">
-    <a href="images/nyc_scores.png" target="_blank">
-      <h3>NYC School Test Scores</h3>
-      <p>Data cleaning and insights</p>
-    </a>
+  <div class="project" onclick="openModal('nyc')">
+    <h3>NYC School Test Scores</h3>
+    <p>Data cleaning and insights</p>
   </div>
 
-  <div class="project">
-    <a href="images/openfoam.png" target="_blank">
-      <h3>OpenFOAM Stress Analysis</h3>
-      <p>Simulation workflows</p>
-    </a>
+  <div class="project" onclick="openModal('openfoam')">
+    <h3>OpenFOAM Stress Analysis</h3>
+    <p>Simulation workflows</p>
   </div>
 </section>
+
+<!-- Modal -->
+<div id="modal" class="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <img id="modal-img" src="" alt="Project Image">
+</div>
+
+<script>
+function openModal(project) {
+  let imgPath = '';
+  if (project === 'netflix') imgPath = 'images/netflix.png';
+  if (project === 'nyc') imgPath = 'images/nyc_scores.png';
+  if (project === 'openfoam') imgPath = 'images/openfoam.png';
+
+  document.getElementById('modal-img').src = imgPath;
+  document.getElementById('modal').style.display = 'block';
+}
+
+function closeModal() {
+  document.getElementById('modal').style.display = 'none';
+}
+</script>
