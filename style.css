@@ -2,7 +2,8 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   line-height: 1.6;
-  background-color: #0a0f1f; /* dark blueprint base */
+  color: #ffffff; /* white text for readability */
+  background-color: #0a0f1f; /* dark navy base */
   background-image: 
     linear-gradient(#00aaff 2px, transparent 2px),
     linear-gradient(90deg, #00aaff 2px, transparent 2px);
@@ -30,11 +31,11 @@ nav a {
 
 section {
   padding: 20px;
-  color: #fff; /* white text for contrast */
+  /* removed background box so text sits directly on blueprint */
 }
 
 h2 {
-  color: #00aaff; /* blueprint cyan headings */
+  color: #00aaff; /* cyan headings to match blueprint lines */
 }
 
 footer {
