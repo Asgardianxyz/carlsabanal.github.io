@@ -3,19 +3,27 @@ body {
   margin: 0;
   line-height: 1.6;
   color: #ffffff; /* white text for readability */
-  background: linear-gradient(135deg, #00264d, #004080, #0066cc, #3399ff, #66ccff);
+  background: linear-gradient(135deg,
+    #00264d,   /* deep blue (low stress) */
+    #004080,
+    #0066cc,
+    #3399ff,
+    #66ccff,
+    #ffcc00,   /* yellow (high stress) */
+    #ff3300    /* red (peak stress) */
+  );
   background-size: 400% 400%;
-  animation: stressGradient 20s ease infinite;
+  animation: stressGradient 25s ease infinite;
 }
 
 @keyframes stressGradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
 header {
-  background: rgba(0, 38, 77, 0.9);
+  background: #004466;
   color: #fff;
   padding: 20px;
   text-align: center;
@@ -37,7 +45,7 @@ h2 {
 }
 
 footer {
-  background: rgba(0, 38, 77, 0.9);
+  background: #004466;
   color: #fff;
   text-align: center;
   padding: 10px;
