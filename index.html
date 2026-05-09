@@ -72,7 +72,28 @@
     </ul>
   </section>
 
-  <!-- Certificates Section -->
+  <!-- Training Section (PDFs) -->
+  <section id="training">
+    <h2>Training</h2>
+    <ul>
+      <li onclick="openModal('simulations')"><strong>A Hands-on Introduction to Engineering Simulations</strong></li>
+      <li onclick="openModal('joining')"><strong>Joining Data with Pandas</strong></li>
+      <li onclick="openModal('manipulation')"><strong>Data Manipulation with Pandas</strong></li>
+      <li onclick="openModal('intermediatepython')"><strong>Intermediate Python</strong></li>
+      <li onclick="openModal('intropython')"><strong>Introduction to Python</strong></li>
+    </ul>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience">
+    <h2>Experience</h2>
+    <ul>
+      <li><strong>Design Engineer</strong> – One year in a Research and Development Company</li>
+      <li><strong>Service Engineer</strong> – One and a half years in an Industrial Machineries Company</li>
+    </ul>
+  </section>
+
+  <!-- Certificates Section (PDFs) -->
   <section id="certificates">
     <h2>Certificates</h2>
     <ul>
@@ -113,10 +134,17 @@
     function openModal(item) {
       let filePath = '';
 
-      // Projects (PDFs instead of images)
+      // Projects (PDFs)
       if (item === 'rod') filePath = 'docs/rod.pdf';
       if (item === 'bullet') filePath = 'docs/bullet.pdf';
       if (item === 'duct') filePath = 'docs/duct.pdf';
+
+      // Training (PDFs)
+      if (item === 'simulations') filePath = 'docs/A Hands-on Introduction to Engineering Simulations.pdf';
+      if (item === 'joining') filePath = 'docs/Joining Data with Pandas.pdf';
+      if (item === 'manipulation') filePath = 'docs/Data Manipulation with Pandas.pdf';
+      if (item === 'intermediatepython') filePath = 'docs/Intermediate Python.pdf';
+      if (item === 'intropython') filePath = 'docs/Introduction to Python.pdf';
 
       // Certificates (PDFs)
       if (item === 'ai') filePath = 'docs/AI for Beginners.pdf';
