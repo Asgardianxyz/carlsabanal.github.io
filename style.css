@@ -235,3 +235,10 @@ footer {
   transform: translateY(-5px);
   border-color: var(--first-color);
 }
+
+.experience-text {
+  font-size: var(--normal-font-size);
+  color: var(--text-color-light); /* Slightly lighter color for descriptions */
+  margin-bottom: 1.25rem;
+  line-height: 1.5;
+}
