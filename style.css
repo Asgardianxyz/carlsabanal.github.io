@@ -1,128 +1,188 @@
-/* General Reset */
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3.5rem;
+  
+  /*========== Colors ==========*/
+  --hue: 230;
+  --first-color: hsl(var(--hue), 55%, 55%);
+  --first-color-light: hsl(var(--hue), 55%, 65%);
+  --first-color-alt: hsl(var(--hue), 50%, 50%);
+  --title-color: hsl(var(--hue), 30%, 95%);
+  --text-color: hsl(var(--hue), 20%, 80%);
+  --text-color-light: hsl(var(--hue), 20%, 70%);
+  --body-color: hsl(var(--hue), 40%, 16%);
+  --container-color: hsl(var(--hue), 40%, 20%);
+
+  /*========== Font and typography ==========*/
+  --body-font: "Syne", sans-serif;
+  --biggest-font-size: 2.5rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+
+  /*========== Font weight ==========*/
+  --font-regular: 400;
+  --font-semi-bold: 600;
+  --font-bold: 700;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/* Responsive typography */
+@media screen and (min-width: 1150px) {
+  :root {
+    --biggest-font-size: 4rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1.125rem;
+  }
+}
+
+/*=============== BASE ===============*/
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-/* Body */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--text-color);
   line-height: 1.6;
-  background: #f4f6f9;
-  color: #333;
 }
 
-/* Header */
-header {
-  background: linear-gradient(135deg, #004d7a, #008793, #00bf72);
-  color: #fff;
-  padding: 2rem 1rem;
-  text-align: center;
-}
-header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-}
-header p {
-  font-size: 1.2rem;
-  opacity: 0.9;
-}
-
-/* Navigation */
-nav {
-  margin-top: 1rem;
-}
-nav a {
-  color: #fff;
-  text-decoration: none;
-  margin: 0 1rem;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-nav a:hover {
-  color: #ffdd57;
-}
-
-/* Sections */
-section {
-  padding: 2rem;
-  max-width: 900px;
-  margin: auto;
-}
-section h2 {
+h1, h2, h3 {
+  color: var(--title-color);
+  font-weight: var(--font-semi-bold);
   margin-bottom: 1rem;
-  color: #004d7a;
-  border-bottom: 2px solid #00bf72;
-  display: inline-block;
-  padding-bottom: 0.3rem;
 }
 
-/* Lists */
 ul {
   list-style: none;
 }
-ul li {
-  background: #fff;
-  margin: 0.5rem 0;
-  padding: 1rem;
-  border-radius: 6px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-ul li:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-}
 
-/* Contact Section */
-#contact a {
-  color: #008793;
+a {
   text-decoration: none;
-}
-#contact a:hover {
-  text-decoration: underline;
+  color: var(--first-color);
+  transition: .3s;
 }
 
-/* Footer */
-footer {
-  background: #004d7a;
-  color: #fff;
+a:hover {
+  color: var(--first-color-light);
+}
+
+/*=============== REUSABLE LAYOUT ===============*/
+section {
+  padding: 4rem 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+header {
   text-align: center;
-  padding: 1rem;
-  margin-top: 2rem;
+  padding: 4rem 1.5rem 2rem;
+  background: linear-gradient(180deg, var(--container-color) 0%, var(--body-color) 100%);
 }
 
-/* Modal */
+header h1 {
+  font-size: var(--biggest-font-size);
+  letter-spacing: -1px;
+}
+
+nav {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+nav a {
+  font-weight: var(--font-semi-bold);
+  color: var(--text-color-light);
+  font-size: var(--small-font-size);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+nav a:hover {
+  color: var(--first-color);
+}
+
+/*=============== PROJECT & LIST CARDS ===============*/
+.project, #training li, #certificates li {
+  background-color: var(--container-color);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all .3s ease;
+}
+
+.project:hover, #training li:hover, #certificates li:hover {
+  transform: translateY(-5px);
+  border-color: var(--first-color);
+  background-color: hsl(var(--hue), 40%, 24%);
+}
+
+#experience li {
+  margin-bottom: 1.5rem;
+  padding-left: 1rem;
+  border-left: 2px solid var(--first-color);
+}
+
+/*=============== MODALS ===============*/
 .modal {
   display: none;
   position: fixed;
-  z-index: 1000;
+  z-index: var(--z-fixed);
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.8);
-  text-align: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
 }
-.modal img {
-  margin-top: 50px;
-  max-width: 90%;
-  height: auto;
-  border: 4px solid #fff;
-  border-radius: 8px;
+
+.modal embed, .modal img {
+  display: block;
+  margin: 5% auto;
+  width: 80%;
+  height: 80vh;
+  border-radius: 1rem;
+  border: 1px solid var(--container-color);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
+
 .close {
   position: absolute;
-  top: 20px;
-  right: 35px;
-  color: #fff;
-  font-size: 40px;
-  font-weight: bold;
+  top: 2rem;
+  right: 2rem;
+  color: var(--title-color);
+  font-size: 2.5rem;
   cursor: pointer;
 }
-.close:hover {
-  color: #ffdd57;
+
+/*=============== FOOTER ===============*/
+footer {
+  text-align: center;
+  padding: 3rem;
+  font-size: var(--small-font-size);
+  color: var(--text-color-light);
+  border-top: 1px solid var(--container-color);
 }
