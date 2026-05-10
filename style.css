@@ -242,3 +242,37 @@ footer {
   margin-bottom: 1.25rem;
   line-height: 1.5;
 }
+
+/* --- Header Profile Section --- */
+
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;           /* Space between the photo and the name */
+  margin-bottom: 1rem;
+}
+
+.header__img {
+  width: 150px;        /* Adjust size as you like */
+  height: 150px;
+  border-radius: 50%;   /* Makes the photo a circle */
+  object-fit: cover;   /* Prevents the face from stretching */
+  border: 3px solid var(--first-color);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.header__data {
+  text-align: left;    /* Aligns the name/title to the left since image is on left */
+}
+
+/* On mobile phones, stack them back to center */
+@media screen and (max-width: 768px) {
+  .header__container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .header__data {
+    text-align: center;
+  }
+}
